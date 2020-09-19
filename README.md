@@ -2,6 +2,8 @@
 
 # Multisite Docker Server
 
+Quickly setup multiple websites via Docker containers on a single server.
+
 [![Build Status](https://travis-ci.com/Justintime50/multisite-docker-server.svg?branch=master)](https://travis-ci.com/Justintime50/multisite-docker-server)
 [![Licence](https://img.shields.io/github/license/justintime50/multisite-docker-server)](LICENSE)
 
