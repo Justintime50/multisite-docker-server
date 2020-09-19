@@ -7,10 +7,8 @@ before_script:
   - cp src/mysql/db.env.example src/mysql/db.env
 
 script:
-  - docker-compose -f src/traefik/insecure/docker-compose.yml up -d
-  - docker-compose -f src/nginx-php-site/docker-compose.yml up -d
-  - docker-compose -f src/mysql/docker-compose.yml up -d
+  - shellcheck *.sh
+  - ./start.sh
   - docker ps | grep -q traefik
   - docker ps | grep -q sitename
   - docker ps | grep -q db
-  - shellcheck start.sh

@@ -3,7 +3,7 @@
 # Multisite Docker Server
 
 [![Build Status](https://travis-ci.com/Justintime50/multisite-docker-server.svg?branch=master)](https://travis-ci.com/Justintime50/multisite-docker-server)
-[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
+[![Licence](https://img.shields.io/github/license/justintime50/multisite-docker-server)](LICENSE)
 
 <img src="assets/showcase.png">
 
@@ -11,7 +11,7 @@
 
 ## What Can it Do?
 
-This project serves as the boilerplate to setting up a full Docker server for multiple sites or applications. You deserve to spend your time building cool apps and designing sites, not configuring server infra.
+This project serves as the boilerplate or template to setting up a full Docker server for multiple sites or applications. You deserve to spend your time building cool apps and designing sites, not configuring server infra.
 
 ### Components
 
@@ -25,10 +25,14 @@ This project serves as the boilerplate to setting up a full Docker server for mu
 Once Docker is installed and running, start up the entire project with one command:
 
 ```bash
+# Copy the MySQL env file
+cp src/mysql/db.env.example src/mysql/db.env
+
+# Start the server
 ./start.sh
 ```
 
-Otherwise, start them one at a time:
+Alternatively, start them one at a time:
 
 1. **Start Traefik:** Navigate to the `Traefik` directory and run `docker-compose up -d` in either the `insecure` or `ssl` folder. Traefik can either host insecure content or SSL content. If using the SSL Traefik docker-compose command, each service will receive its own SSL certificate provided by `LetsEncrypt` through `Traefik`. Traefik will take care of automatically renewing these certs as well. Navigate to either the `/insecure` or `/ssl` directory based on your needs.
 1. **Start Each Service:** Start up each of your sites using `docker-compose up -d` in the directory of the site. Replicate the `site` folder structure as needed for other projects and update accordingly. Drop in your html/php files to each directory.
