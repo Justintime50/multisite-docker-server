@@ -1,0 +1,21 @@
+name: build
+
+on: [push, pull_request]
+
+jobs:
+  install:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@1.0.0
+        with:
+          scandir: "src"
+      - name: Setup Docker server
+        run: |
+          cp src/mysql/db.env.example src/mysql/db.env
+          ./src/start.sh
+          docker ps | grep -q traefik
+          docker ps | grep -q sitename
+          docker ps | grep -q db

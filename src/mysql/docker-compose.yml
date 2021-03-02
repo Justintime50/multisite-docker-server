@@ -1,20 +1,18 @@
-version: "3.7"
 services:
-
-    db:
-        image: mysql:8.0.18
-        restart: always
-        container_name: db
-        env_file:
-            - db.env
-        # ports:
-        #    - "3306:3306"
-        volumes:
-            - ./db:/var/lib/mysql
-        networks:
-            - traefik
+  db:
+    image: mysql:8.0.23
+    restart: always
+    container_name: db
+    env_file:
+      - db.env
+    # ports:
+    #    - "3306:3306"
+    volumes:
+      - ./db:/var/lib/mysql
+    networks:
+      - traefik
 
 networks:
-    traefik:
-        external:
-            name: traefik
+  traefik:
+    external:
+      name: traefik

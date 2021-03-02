@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v1.1.0 (2021-03-01)
+
+* Moved from Travis CI to GitHub Actions
+* Dependency bumps
+* Massive cleanup of project
+
 ## v1.0.0 (2020)
 
 * Stable release
