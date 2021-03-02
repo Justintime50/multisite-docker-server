@@ -3,8 +3,8 @@ name: build
 on: [push, pull_request]
 
 jobs:
-  install:
-    runs-on: macos-latest
+  shellcheck:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -12,6 +12,11 @@ jobs:
         uses: ludeeus/action-shellcheck@1.0.0
         with:
           scandir: "src"
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
       - name: Setup Docker server
         run: |
           cp src/mysql/db.env.example src/mysql/db.env
